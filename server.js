@@ -5,35 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
-app.get('/article-one',function(req,res){
-   // res.sendFile(path.join(__dirname,'ui','article-one.html'));
-   res.send(createTemplate(articleOne));
-});
-
-app.get('/article-two',function(req,res){
-    //res.sendFile(path.join(__dirname,'ui','article-two.html'));
-    res.send(createTemplate(articleTwo));
-});
-
-app.get('/article-three',function(req,res){
-   // res.sendFile(path.join(__dirname,'ui','article-three.html'));
-   res.send(createTemplate(articleThree));
-});
-
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-
-app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
-
 var articles={
- articleOne:{
+    'article-one':{
     title:"Article-one",
     header:"This is Article one new",
     Date:"8th Feb 2017",
@@ -47,7 +20,7 @@ var articles={
     <p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
     </p>`},
-    articleTwo:{
+    'article-two':{
     title:"Article-Two",
     header:"This is Article Two new",
     Date:"9th Feb 2017",
@@ -61,7 +34,7 @@ var articles={
     <p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
     </p>`},
-    articleThree:{
+    'article-three':{
     title:"Article-Three",
     header:"This is Article Three new",
     Date:"10th Feb 2017",
@@ -76,7 +49,36 @@ var articles={
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
     </p>`}
 };
-    
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/:articleName',function(req,res){
+   // res.sendFile(path.join(__dirname,'ui','article-one.html'));
+   var articleName=req.param.articleName
+   res.send(createTemplate(articles[articleName]));
+});
+/*
+app.get('/article-two',function(req,res){
+    //res.sendFile(path.join(__dirname,'ui','article-two.html'));
+    res.send(createTemplate(articles[articleTwo]));
+});
+
+app.get('/article-three',function(req,res){
+   // res.sendFile(path.join(__dirname,'ui','article-three.html'));
+   res.send(createTemplate(articleThree));
+});*/
+
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+
 
 function createTemplate(data)
 {
