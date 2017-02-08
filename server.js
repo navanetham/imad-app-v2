@@ -15,11 +15,13 @@ app.get('/article-one',function(req,res){
 });
 
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','article-two.html'));
+    //res.sendFile(path.join(__dirname,'ui','article-two.html'));
+    res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','article-three.html'));
+   // res.sendFile(path.join(__dirname,'ui','article-three.html'));
+   res.send(createTemplate(articleThree));
 });
 
 app.get('/ui/style.css', function (req, res) {
@@ -30,7 +32,8 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var articleOne={
+var articles={
+ articleOne:{
     title:"Article-one",
     header:"This is Article one new",
     Date:"8th Feb 2017",
@@ -43,8 +46,37 @@ var articleOne={
     </p>
     <p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
-    </p>`
+    </p>`},
+    articleTwo:{
+    title:"Article-Two",
+    header:"This is Article Two new",
+    Date:"9th Feb 2017",
+    content:
+    `<p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>
+    <p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>
+    <p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>`},
+    articleThree:{
+    title:"Article-Three",
+    header:"This is Article Three new",
+    Date:"10th Feb 2017",
+    content:
+    `<p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>
+    <p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>
+    <p>
+    This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
+    </p>`}
 };
+    
 
 function createTemplate(data)
 {
