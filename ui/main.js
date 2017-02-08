@@ -3,11 +3,11 @@ alert("from MainJS");
 var main=document.getElementById('main-text');
 main.innerHTML="New Value to be displayed";
 var img=document.getElementById('madi');
-var margin=0;
+var marginLeft=0;
 function moveRight(){
-    margin=margin+1;
-    img.style.marginLeft=margin+'px';
+    marginLeft=marginLeft+1;
+    img.style.marginLeft=marginLeft + 'px';
 }
 img.onclick=function(){
     var interval=setInterval(moveRight,50);
-}
+};
