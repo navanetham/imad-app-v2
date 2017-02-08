@@ -7,9 +7,9 @@ app.use(morgan('combined'));
 
 var articles={
     'article-one':{
-    title:"Article-one",
-    header:"This is Article one All Done",
-    Date:"8th Feb 2017",
+    title:'Article-one',
+    header:'This is Article one All Done',
+    date:'8th Feb 2017',
     content:
     `<p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
@@ -21,9 +21,9 @@ var articles={
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
     </p>`},
     'article-two':{
-    title:"Article-Two",
-    header:"This is Article Two new",
-    Date:"9th Feb 2017",
+    title:'Article-Two',
+    header:'This is Article Two new',
+    date:'9th Feb 2017',
     content:
     `<p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
@@ -35,9 +35,9 @@ var articles={
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
     </p>`},
     'article-three':{
-    title:"Article-Three",
-    header:"This is Article Three new",
-    Date:"10th Feb 2017",
+    title:'Article-Three',
+    header:'This is Article Three new',
+    date:'10th Feb 2017',
     content:
     `<p>
     This is my first Article page on web. This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.This is my first Article page on web.   
@@ -54,7 +54,7 @@ function createTemplate(data)
 {
     var title=data.title;
     var header=data.header;
-    var Date=data.Date;
+    var date=data.date;
     var content=data.content;
     
 var htmlTemplate=
@@ -73,7 +73,7 @@ var htmlTemplate=
 <h1>${header}</h1>
 <br>
 <div>
-    ${Date}
+    ${date}
 </div>
 <div>
    ${content}
@@ -83,7 +83,7 @@ var htmlTemplate=
     
 </html>`;
 return htmlTemplate;
-};
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -91,7 +91,7 @@ app.get('/', function (req, res) {
 
 app.get('/:articleName',function(req,res){
    // res.sendFile(path.join(__dirname,'ui','article-one.html'));
-   var articleName=req.param.articleName
+   var articleName=req.params.articleName;
    res.send(createTemplate(articles[articleName]));
 });
 /*
