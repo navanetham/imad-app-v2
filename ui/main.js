@@ -1,5 +1,5 @@
 console.log('Loaded!');
-alert("from MainJS");
+/*alert("from MainJS");
 var main=document.getElementById('main-text');
 main.innerHTML="New Value to be displayed";
 var img=document.getElementById('madi');
@@ -10,4 +10,4 @@ function moveRight(){
 }
 img.onclick=function(){
     var interval=setInterval(moveRight,50);
-};
+};*/
