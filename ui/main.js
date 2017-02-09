@@ -11,3 +11,12 @@ function moveRight(){
 img.onclick=function(){
     var interval=setInterval(moveRight,50);
 };*/
+
+//var commentsarray=[];
+var submit=document.getElementbyId("submit");
+submit.onclick=function(){
+var comments=document.getElementbyId("comment");
+comments='<li>'+comments+"<li>";
+var listofcomments=document.getElementbyId("usercomments");
+listofcomments.innerHTML=comments;
+}
