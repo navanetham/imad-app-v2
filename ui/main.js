@@ -17,7 +17,7 @@ var submit=document.getElementById("submit");
 submit.onclick=function(){
 var comments=document.getElementById("comment");
 alert(comments);
-comments='<li>'+comments+"<li>";
+comments='<li>'+comments.innerText+"<li>";
 var listofcomments=document.getElementById("usercomments");
 listofcomments.innerHTML=comments;
 }
