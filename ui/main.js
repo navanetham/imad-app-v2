@@ -16,14 +16,28 @@ img.onclick=function(){
 var submit=document.getElementById("submit");
 submit.onclick=function(){
 var comments=document.getElementById("comment").value;
-
 var request=new XMLHttpRequest();
-//alert(comments);
-comments='<li>'+comments+"<li>";
-var listofcomments=document.getElementById("usercomments");
-listofcomments.innerHTML=comments;
+request.onreadystatechange=function()
+{
+    if(request.readyState == XMLHttpRequest.DONE)
+    {
+        if(request.status==200)
+        {
+            var commentlist=request.respontText;
+            commentlist=JSON.parse(commentlist);
+            var list='';
+            for (var i=0;i<commentlist.length;i++)
+            {
+                list='<li>' + commentlist[i]+ '</li>'
+            }
+            var listofcomments=document.getElementById("usercomments");
+            listofcomments.innerHTML=list;
+        }
+    }
 
 
 request.open('GET',"http://navanetham.imad.hasura-app.io/getcomments/"+comments,true);
 request.send(null);
+
+}
 }
