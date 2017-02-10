@@ -26,8 +26,10 @@ request.onreadystatechange=function()
     {
         if(request.status==200)
         {
-            var commentlist=request.respontText;
+            var commentlist=request.responseText;
+            alert("printing commentlist before parsing"+commentlist);
             commentlist=JSON.parse(commentlist);
+             alert("printing commentlist After parsing"+commentlist);
             var list='';
             for (var i=0;i<commentlist.length;i++)
             {
@@ -40,4 +42,4 @@ request.onreadystatechange=function()
 };
 request.open('GET',"http://navanetham.imad.hasura-app.io/getcomments/"+comments,true);
 request.send(null);
-}
+};
