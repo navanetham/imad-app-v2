@@ -15,9 +15,9 @@ img.onclick=function(){
 //var commentsarray=[];
 var submit=document.getElementById("submit");
 submit.onclick=function(){
-var comments=document.getElementById("comment");
-alert(comments.inputValue);
-comments='<li>'+comments.inputValue+"<li>";
+var comments=document.getElementById("comment").Value;
+alert(comments);
+comments='<li>'+comments+"<li>";
 var listofcomments=document.getElementById("usercomments");
 listofcomments.innerHTML=comments;
 }
