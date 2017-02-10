@@ -33,7 +33,7 @@ request.onreadystatechange=function()
             var list='';
             for (var i=0;i<commentlist.length;i++)
             {
-                list='<li>' + commentlist[i]+ '</li>';
+                list+='<li>' + commentlist[i]+ '</li>';
             }
             var listofcomments=document.getElementById("usercomments");
             listofcomments.innerHTML=list;
