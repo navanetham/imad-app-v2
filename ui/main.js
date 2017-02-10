@@ -15,8 +15,9 @@ img.onclick=function(){
 //var commentsarray=[];
 var submit=document.getElementById("submit");
 var comments=document.getElementById("comment").value;
-alert("comment value is : "+comments);
+
 submit.onclick=function(){
+    alert("comment value is : "+comments);
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
