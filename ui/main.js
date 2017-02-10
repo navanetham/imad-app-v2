@@ -16,8 +16,14 @@ img.onclick=function(){
 var submit=document.getElementById("submit");
 submit.onclick=function(){
 var comments=document.getElementById("comment").value;
-alert(comments);
+
+var request=new XMLHttpRequest();
+//alert(comments);
 comments='<li>'+comments+"<li>";
 var listofcomments=document.getElementById("usercomments");
 listofcomments.innerHTML=comments;
+
+
+request.open('GET',"http://navanetham.imad.hasura-app.io/getcomments/"+comments,true);
+request.send(null);
 }
