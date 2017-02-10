@@ -15,7 +15,7 @@ img.onclick=function(){
 //var commentsarray=[];
 var submit=document.getElementById("submit");
 submit.onclick=function(){
-var comments=document.getElementById("comment").Value;
+var comments=document.getElementById("comment").value;
 alert(comments);
 comments='<li>'+comments+"<li>";
 var listofcomments=document.getElementById("usercomments");
