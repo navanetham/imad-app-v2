@@ -15,9 +15,9 @@ img.onclick=function(){
 //var commentsarray=[];
 var submit=document.getElementById("submit");
 var comments=document.getElementById("comment").value;
-
+ alert("comment value before click : "+comments);
 submit.onclick=function(){
-    alert("comment value is : "+comments);
+    alert("comment value after click : "+comments);
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
@@ -30,16 +30,13 @@ request.onreadystatechange=function()
             var list='';
             for (var i=0;i<commentlist.length;i++)
             {
-                list='<li>' + commentlist[i]+ '</li>'
+                list='<li>' + commentlist[i]+ '</li>';
             }
             var listofcomments=document.getElementById("usercomments");
             listofcomments.innerHTML=list;
         }
     }
-
-
+};
 request.open('GET',"http://navanetham.imad.hasura-app.io/getcomments/"+comments,true);
 request.send(null);
-
-}
 }
