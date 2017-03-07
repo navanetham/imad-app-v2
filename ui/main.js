@@ -18,7 +18,7 @@ var comments=document.getElementById("comment").value;
  alert("comment value before click : "+comments);
 submit.onclick=function(){
     var comments=document.getElementById("comment").value;
-    alert("comment value after click : "+comments);
+   // alert("comment value after click : "+comments);
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
